@@ -14,6 +14,8 @@ protected:
 	int _dmg = 3;
 	bool isActive = true;
 public:
+	virtual ~Entity();
+	
 	virtual void Show(HDC* hdc) const {}
 	virtual void Action(Entity* pl, bool turn) {}
 	virtual bool Attack() { return false; }
@@ -39,6 +41,7 @@ private:
 	int completedMaps;
 public:
 	Player(int Health, int x, int y);
+	~Player() override;
 	virtual void Show(HDC* hdc) const;
 	virtual void Action();
 	virtual bool Attack();
@@ -60,6 +63,7 @@ protected:
 public:
 	Swashbuckler();
 	Swashbuckler(int x, int y);
+	~Swashbuckler() override;
 	virtual void Show(HDC *hDC) const;
 	virtual void Action(Entity* pl, bool turn);
 	virtual bool Attack(Entity* pl);
@@ -85,6 +89,7 @@ private:
 public:
 	Ranger();
 	Ranger(int x, int y);
+	~Ranger() override;
 	virtual void Show(HDC* hDC) const;
 	virtual void Action(Entity* pl, bool turn);
 	virtual bool Attack(Entity* pl);

@@ -97,6 +97,10 @@ int main()
 		{
 			break;
 		}
+		else
+		{
+
+		}
 	}
 
 	_getch();

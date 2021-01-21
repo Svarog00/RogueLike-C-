@@ -75,3 +75,4 @@ void LinkList::ClearList()
 		}
 	}
 }
+

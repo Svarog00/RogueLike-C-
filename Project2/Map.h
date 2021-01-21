@@ -23,6 +23,7 @@ private:
 	HDC hDCmap;
 public:
 	Map();
+	~Map();
 	void ShowMap(Player* player);
 	void DrawMap(Player* player, bool pass);
 	void FillMap();

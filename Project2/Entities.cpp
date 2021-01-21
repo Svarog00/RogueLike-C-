@@ -4,6 +4,10 @@
 #include "Entities.h"
 #include "UtilityFunctions.h"
 
+Entity::~Entity()
+{
+}
+
 void Entity::Hurt(int dmg)
 {
 	_health -= dmg;
@@ -47,6 +51,10 @@ Player::Player(int Health, int x, int y)
 	X = x; Y = y;
 	kills = 0;
 	completedMaps = 0;
+}
+
+Player::~Player()
+{
 }
 
 int Player::GetDir()
@@ -139,6 +147,10 @@ Swashbuckler::Swashbuckler(int x, int y)
 	X = x; Y = y;
 }
 
+Swashbuckler::~Swashbuckler()
+{
+}
+
 void Swashbuckler::Show(HDC *hdc) const
 {
 	HBRUSH brush = CreateHatchBrush(7, color); //создание кисти определенного размера и цвета
@@ -228,6 +240,10 @@ Ranger::Ranger(int x, int y)
 	shot = Shot(x, y);
 }
 
+Ranger::~Ranger()
+{
+}
+
 void Ranger::Show(HDC* hDC) const
 {
 	HBRUSH brush = CreateHatchBrush(7, color); //создание кисти определенного размера и цвета
@@ -287,7 +303,7 @@ void Shot::Show(HDC* hDC) const
 
 void Shot::Move( Entity* pl)
 {
-	if ((Distance(pl->GetX(), pl->GetY(), X, Y) > 1) && isExisting == true)
+	if ((Distance(pl->GetX(), pl->GetY(), X, Y) > 0) && isExisting == true)
 	{
 		if (pl->GetX() < X)
 		{

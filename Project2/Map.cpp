@@ -57,6 +57,15 @@ Map::Map()
 	next = false;
 }
 
+Map::~Map()
+{
+	for (size_t i = 0; i < m; i++)
+	{
+		delete map[i];
+	}
+	delete[] map;
+}
+
 void Map::ShowMap(Player* player)
 {
 	HDC hDCT = CreateCompatibleDC(hDCmap); //дескриптор, через который будет происходить рисование в окне
